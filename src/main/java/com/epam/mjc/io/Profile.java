@@ -1,3 +1,4 @@
+
 package com.epam.mjc.io;
 
 import java.util.Objects;
@@ -5,14 +6,14 @@ import java.util.Objects;
 public class Profile {
 
     private String name;
-    private Integer age;
+    private int age;
     private String email;
-    private Long phone;
+    private long phone;
 
     public Profile() {
-
     }
-    public Profile(String name, Integer age, String email, Long phone) {
+
+    public Profile(String name, int age, String email, long phone) {
         this.name = name;
         this.age = age;
         this.email = email;
@@ -27,11 +28,11 @@ public class Profile {
         this.name = name;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -43,23 +44,12 @@ public class Profile {
         this.email = email;
     }
 
-    public Long getPhone() {
+    public long getPhone() {
         return phone;
     }
 
-    public void setPhone(Long phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Profile{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", age=").append(age);
-        sb.append(", email='").append(email).append('\'');
-        sb.append(", phone=").append(phone);
-        sb.append('}');
-        return sb.toString();
     }
 
     @Override
@@ -67,18 +57,21 @@ public class Profile {
         if (this == o) {
             return true;
         }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+
         Profile profile = (Profile) o;
-        return getName().equals(profile.getName())
-                && getAge().equals(profile.getAge())
-                && getEmail().equals(profile.getEmail())
-                && getPhone().equals(profile.getPhone());
+
+        return age == profile.age
+                && phone == profile.phone
+                && Objects.equals(name, profile.name)
+                && Objects.equals(email, profile.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getAge(), getEmail(), getPhone());
+        return Objects.hash(name, age, email, phone);
     }
 }
