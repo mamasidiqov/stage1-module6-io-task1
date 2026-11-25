@@ -4,6 +4,7 @@ package com.epam.mjc.io;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +32,7 @@ public class FileReader {
             }
 
         } catch (IOException e) {
-            throw new RuntimeException("Could not read file", e);
+            throw new UncheckedIOException("Could not read file", e);
         }
 
         Profile profile = new Profile();
